@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "got": "^9.3.2",
+    "lodash.omit": "^4.5.0",
+    "log-update": "^2.3.0",
+    "ora": "^3.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.15.2"
+  }
+}
