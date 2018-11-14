@@ -29,7 +29,7 @@ function render() {
         : '',
     location:
       Object.keys(location).length > 0
-        ? chalk.yellow(`${location.lat}, ${location.lng}`)
+        ? chalk.yellow(`${location.lat.toFixed(6)}, ${location.lng.toFixed(6)}`)
         : '',
     url:
       location.lat && location.lng
@@ -44,7 +44,7 @@ function render() {
   };
 
   const output = `
-  WiFi networks ${getSpinner('wifi')}${renderProps.wifiAccessPointsCount}
+       WiFi APs ${getSpinner('wifi')}${renderProps.wifiAccessPointsCount}
        Location ${getSpinner('geolocating')}${renderProps.location}
        Accuracy ${getSpinner('geolocating')}${renderProps.accuracy}
     Google Maps ${getSpinner('geolocating')}${renderProps.url}
