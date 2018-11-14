@@ -13,15 +13,18 @@ function parseAirportAccessPoints(str) {
     }
 
     const macStart = line.indexOf(mac[0]);
-    const elements = line.substr(macStart).split(/[ ]+/);
+    const [macAddress, signalStrength, channel] = line
+      .substr(macStart)
+      .split(/[ ]+/)
+      .map(el => el.trim());
 
     return [
       ...acc,
       {
         ssid: line.substr(0, macStart).trim(),
-        macAddress: elements[0].trim(),
-        signalStrength: parseInt(elements[1].trim(), 10),
-        channel: parseInt(elements[2].trim(), 10),
+        macAddress,
+        signalStrength: parseInt(signalStrength, 10),
+        channel: parseInt(channel, 10),
       },
     ];
   }, []);
@@ -37,4 +40,4 @@ async function getwifiAccessPoints() {
 
 module.exports = {
   getwifiAccessPoints,
-}
+};
